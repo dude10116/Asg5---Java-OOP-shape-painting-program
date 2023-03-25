@@ -61,22 +61,18 @@ public class PaintPanel extends JPanel implements MouseListener {
     g.fillRect(centerx-mouth/2, h-thirdy-20, mouth, 40);
 }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        int mousex = e.getX();
-        int mousey = e.getY();
-        int topleftx = mousex - 40/2;
-        int toplefty = mousey - 10/2;
-        
-        // create the appropriate shape based on the selectedShape variable
-        if (selectedShape.equals("Rectangle")) {
-            Rectangle r = new Rectangle(topleftx, toplefty, 40, 10, "#ff0000");
-            r.draw(getGraphics());
-        } else if (selectedShape.equals("Oval")) {
-            Oval o = new Oval(topleftx, toplefty, 40, 10, "#ff0000");
-            o.draw(getGraphics());
-        }
-    }
+@Override
+public void mouseClicked(MouseEvent e) {
+    // pay me now ... calculate the top left corner from the mouse x, y
+    // hard-coded example 40 x 10 rectangle
+    int mousex = e.getX();
+    int mousey = e.getY();
+    int topleftx = mousex - 40/2;
+    int toplefty = mousey - 10/2;
+    System.out.println(mousex + " " + mousey);
+    Rectangle r = new Rectangle(topleftx, toplefty, 40, 10, "#ff0000");
+    r.draw(getGraphics());
+}
 
     // add a method to set the selected shape
     public void setSelectedShape(String shape) {
